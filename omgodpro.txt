@@ -448,25 +448,6 @@ end)
 
 spawn(function()
     while wait() do
-        if RR then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9940.25195, 9846.04297, 42.1312103, -0.999908566, -0, -0.0135264089, -0, 1.00000012, -0, 0.0135264089, 0, -0.999908566)
-            pcall(function()
-                    spawn(function()
-                    game:GetService("RunService").Heartbeat:Connect(function()
-                        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
-                            setfflag("HumanoidParallelRemoveNoPhysics", "False")
-                            setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-                            game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(13)
-                        end
-                    end)
-                end)
-            end)
-        end
-    end
-end)
-
-spawn(function()
-    while wait() do
         if NN then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3332.79761, 90.3017426, 1399.00562, -0.683260739, -0.0221581031, -0.729838192, -0.000268015516, 0.999547005, -0.0300956331, 0.730174422, -0.0203675572, -0.682957172)
             pcall(function()
@@ -668,7 +649,7 @@ local B = Window:MakeTab({
 })
 
 local C = Window:MakeTab({
-	Name = "Stars",
+	Name = "Spawn",
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
@@ -723,16 +704,16 @@ B:AddToggle({
 	end    
 })
 
-local Section = B:AddSection({
-	Name = "Sub Farm"
-})
-
 B:AddToggle({
 	Name = "Farm Kuku",
 	Default = false,
 	Callback = function(Value)
 		CC = Value
 	end    
+})
+
+local Section = B:AddSection({
+	Name = "Sub Farm"
 })
 
 B:AddToggle({
@@ -747,6 +728,47 @@ B:AddToggle({
 	Name = "Farm Trading zummy",
 	Default = false,
 	Callback = function(Value)
-		NN = Value
+		LL = Value
 	end    
+})
+
+C:AddButton({
+	Name = "Teleport Broly",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3426.13672, 89.3883743, -125.636848, 0.434640914, 0, 0.900603831, -0, 1.00000012, -0, -0.90060395, 0, 0.434640855)
+  	end    
+})
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----C----
+local Section = B:AddSection({
+	Name = "Broly"
+})
+
+C:AddButton({
+	Name = "Spawn Broly",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3485.20337, 88.6477509, 6.33346891, 0.296328068, 0, 0.955086231, -0, 1, -0, -0.955086231, 0, 0.296328068)
+  	end    
+})
+
+
+
+local Section = B:AddSection({
+	Name = "Zamasu"
+})
+
+C:AddButton({
+	Name = "Spawn Zamasu",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3589.56323, 320.653534, 1212.49731, 0.915187716, 0, 0.403027922, -0, 1.00000012, -0, -0.403027922, 0, 0.915187716)
+  	end    
+})
+
+C:AddButton({
+	Name = "Spawn Zamasu",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2392.49634, 159.286377, 1266.71936, 5.65052032e-05, -0.0538166463, -0.99855113, -1.00000024, 2.70605087e-05, -5.82933426e-05, 3.03685665e-05, 0.998551071, -0.0538167953)
+  	end    
 })
