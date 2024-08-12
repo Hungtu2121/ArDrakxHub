@@ -708,11 +708,11 @@ A:AddButton({
   	end    
 })
 
-local Section = B:AddSection({
+local Section = W:AddSection({
 	Name = "Farm Lerver"
 })
 
-B:AddDropdown({
+W:AddDropdown({
 	Name = "Select Weapon",
 	Default = "",
 	Options = Weaponlist,
@@ -721,7 +721,7 @@ B:AddDropdown({
 	end    
 })
 
-B:AddToggle({
+W:AddToggle({
 	Name = "Farm Lerver",
 	Default = false,
 	Callback = function(Value)
@@ -729,7 +729,7 @@ B:AddToggle({
 	end    
 })
 
-B:AddToggle({
+W:AddToggle({
 	Name = "Fast attacks",
 	Default = true,
 	Callback = function(Value)
@@ -737,7 +737,7 @@ B:AddToggle({
 	end    
 })
 
-B:AddToggle({
+W:AddToggle({
 	Name = "Farm Nerver [ Map ]",
 	Default = false,
 	Callback = function(Value)
@@ -745,7 +745,7 @@ B:AddToggle({
 	end    
 })
 
-B:AddToggle({
+W:AddToggle({
 	Name = "Farm Kuku",
 	Default = false,
 	Callback = function(Value)
@@ -753,11 +753,11 @@ B:AddToggle({
 	end    
 })
 
-local Section = B:AddSection({
+local Section = W:AddSection({
 	Name = "Sub Farm"
 })
 
-B:AddToggle({
+W:AddToggle({
 	Name = "Farm Zamasu",
 	Default = false,
 	Callback = function(Value)
@@ -765,7 +765,7 @@ B:AddToggle({
 	end    
 })
 
-B:AddToggle({
+W:AddToggle({
 	Name = "Farm Trading zummy",
 	Default = false,
 	Callback = function(Value)
