@@ -660,3 +660,27 @@ local A = Window:MakeTab({
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
+
+local W = Window:MakeTab({
+	Name = "info hub",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local S = Window:MakeTab({
+	Name = "info hub",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local N = Window:MakeTab({
+	Name = "info hub",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local K = Window:MakeTab({
+	Name = "info hub",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
