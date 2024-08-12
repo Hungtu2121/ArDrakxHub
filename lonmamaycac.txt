@@ -662,7 +662,7 @@ local A = Window:MakeTab({
 })
 
 local W = Window:MakeTab({
-	Name = "info hub",
+	Name = "General",
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
@@ -674,13 +674,25 @@ local S = Window:MakeTab({
 })
 
 local N = Window:MakeTab({
-	Name = "info hub",
+	Name = "Spawn",
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
 
 local K = Window:MakeTab({
-	Name = "info hub",
+	Name = "Raid",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local H = Window:MakeTab({
+	Name = "Star",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local P = Window:MakeTab({
+	Name = "Teleport",
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
