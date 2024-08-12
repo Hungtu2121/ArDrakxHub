@@ -329,7 +329,7 @@ spawn(function()
                                             else
                                                 Click()   
                                             end
-                                            TP(x.HumanoidRootPart.CFrame * CFrame.new(0,0,DistanceMob))
+                                            TP(x.HumanoidRootPart.CFrame * CFrame.new(0,7,DistanceMob))
                                         until x:FindFirstChild("Humanoid").Health <= 0 or not Farm or not x.Parent or game:GetService("Players").LocalPlayer.Quest.Num.Value == 0
                                     end
                                 else
@@ -344,7 +344,7 @@ spawn(function()
                                                 else
                                                     Click()   
                                                 end
-                                                TP(x.HumanoidRootPart.CFrame * CFrame.new(0,8,DistanceMob))
+                                                TP(x.HumanoidRootPart.CFrame * CFrame.new(0,7,DistanceMob))
                                             until x:FindFirstChild("Humanoid").Health <= 0 or not Farm or not x.Parent or game:GetService("Players").LocalPlayer.Quest.Num.Value == 0
                                         end
                                     end
@@ -361,7 +361,7 @@ spawn(function()
                                             else
                                                 Click()   
                                             end
-                                            TP(x.HumanoidRootPart.CFrame * CFrame.new(0,8,DistanceMob))
+                                            TP(x.HumanoidRootPart.CFrame * CFrame.new(0,7,DistanceMob))
                                         until x:FindFirstChild("Humanoid").Health <= 0 or not Farm or not x.Parent or game:GetService("Players").LocalPlayer.Quest.Num.Value == 0
                                     end
                                 end
@@ -401,36 +401,27 @@ end)
 
 spawn(function()
     while wait() do
-        if AutoFarmRaid then
-            for i,v in pairs(game.Workspace.SpawnEnemy:GetDescendants()) do
-                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 400 then
-                    pcall(function()
-                        repeat wait()
-                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            v.HumanoidRootPart.CanCollide = false
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, DistanceMob, 7)
-                            EquipWeapon(Weapon)
-                            if Method == "Normal"then
-                                Click()
-                            elseif Method == "Fast" then
-                                Fast = true
-                            elseif Method == "Super Fast" then
-                                SuperFast = true
-                            else
-                                Click()
-                            end
-                        until not AutoFarmRaid or not v.Parent or v.Humanoid.Health <= 1
+        if CC then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(661.635742, 113.932434, 4426.24463, 0.998946428, -8.63209237e-08, 0.0458918735, 8.94843097e-08, 1, -6.68767939e-08, -0.0458918735, 7.09129395e-08, 0.998946428)
+            pcall(function()
+                    spawn(function()
+                    game:GetService("RunService").Heartbeat:Connect(function()
+                        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+                            setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                            setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                            game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(13)
+                        end
                     end)
-                end
-            end
+                end)
+            end)
         end
     end
 end)
 
 spawn(function()
     while wait() do
-        if CC then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(661.635742, 113.932434, 4426.24463, 0.998946428, -8.63209237e-08, 0.0458918735, 8.94843097e-08, 1, -6.68767939e-08, -0.0458918735, 7.09129395e-08, 0.998946428)
+        if RR then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9940.25195, 9846.04297, 42.1312103, -0.999908566, -0, -0.0135264089, -0, 1.00000012, -0, 0.0135264089, 0, -0.999908566)
             pcall(function()
                     spawn(function()
                     game:GetService("RunService").Heartbeat:Connect(function()
@@ -467,5 +458,220 @@ end)
 
 spawn(function()
     while wait() do
+        if CL then
+            if game.workspace:FindFirstChild("Npc") then
+                check = game.Workspace.Npc
+            end
+            wait()
+            for i,v in pairs(check:GetChildren()) do
+                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 400 then
+                    pcall(function()
+                        repeat wait()
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                            v.HumanoidRootPart.CanCollide = false
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, DistanceMob, 9)
+                            EquipWeapon(Weapon)
+                            if Method == "Normal"then
+                                Click()
+                            elseif Method == "Fast" then
+                                Fast = true
+                            elseif Method == "Super Fast" then
+                                SuperFast = true
+                            else
+                                Click()
+                            end
+                        until not Killaura or not v.Parent or v.Humanoid.Health <= 1
+                    end)
+                end
+            end
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
         if LL then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9940.25195, 9846.04297, 42.1312103, -0.999908566, -0, -0.0135264089, -0, 1.00000012, -0, 0.0135264089, 0, 
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9940.25195, 9846.04297, 42.1312103, -0.999908566, -0, -0.0135264089, -0, 1.00000012, -0, 0.0135264089, 0, -0.999908566)
+            if game.workspace:FindFirstChild("Npc") then
+                check = game.Workspace.Npc
+            end
+            wait()
+            for i,v in pairs(check:GetChildren()) do
+                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 400 then
+                    pcall(function()
+                        repeat wait()
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                            v.HumanoidRootPart.CanCollide = false
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, DistanceMob, 9)
+                            EquipWeapon(Weapon)
+                            if Method == "Normal"then
+                                Click()
+                            elseif Method == "Fast" then
+                                Fast = true
+                            elseif Method == "Super Fast" then
+                                SuperFast = true
+                            else
+                                Click()
+                            end
+                        until not Killaura or not v.Parent or v.Humanoid.Health <= 1
+                    end)
+                end
+            end
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if AutoFarmRaid then
+            for i,v in pairs(game.Workspace.SpawnEnemy:GetDescendants()) do
+                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 400 then
+                    pcall(function()
+                        repeat wait()
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                            v.HumanoidRootPart.CanCollide = false
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, DistanceMob, 9)
+                            EquipWeapon(Weapon)
+                            if Method == "Normal"then
+                                Click()
+                            elseif Method == "Fast" then
+                                Fast = true
+                            elseif Method == "Super Fast" then
+                                SuperFast = true
+                            else
+                                Click()
+                            end
+                        until not AutoFarmRaid or not v.Parent or v.Humanoid.Health <= 1
+                    end)
+                end
+            end
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if KillauraRaid then
+            for i,v in pairs(game.Workspace.SpawnEnemy:GetDescendants()) do
+                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 400 then
+                    pcall(function()
+                        repeat wait()
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                            v.Humanoid.Health = 0
+                            v.HumanoidRootPart.CanCollide = false
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,150)
+                            v.HumanoidRootPart.Transparency = 1000
+                        until not KillauraRaid or not v.Parent or v.Humanoid.Health <= 1
+                    end)
+                end
+            end
+        end
+    end
+end)
+
+spawn(function()
+    while wait(0.100) do
+        if CBLRaid or Fast then
+            pcall(function()
+                local args = {
+                    [1] = 2,
+                    [2] = game:GetService("Players").LocalPlayer
+                }
+                if game:GetService("Players").LocalPlayer.Character[Vtool]:FindFirstChild("HackerSo1TheGioi") then
+                    game:GetService("Players").LocalPlayer.Character[Vtool].HackerSo1TheGioi.RemoteEvent:FireServer(unpack(args))
+                elseif game:GetService("Players").LocalPlayer.Character[Vtool]:FindFirstChild("Attack") then
+                    game:GetService("Players").LocalPlayer.Character[Vtool].Attack.RemoteEvent:FireServer(unpack(args))
+                end
+            end) 
+        end
+    end
+end)
+
+
+spawn(function()
+    while wait() do
+        if Melee then
+            pcall(function()
+                local args = {
+                    [1] = "Melee"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("StatSystem"):WaitForChild("Points"):FireServer(unpack(args))
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if Defense then
+            pcall(function()
+                local args = {
+                   [1] = "MaxHealth"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("StatSystem"):WaitForChild("Points"):FireServer(unpack(args))
+            end)
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+        if Sword then
+            pcall(function()
+                local args = {
+                    [1] = "Sword"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("StatSystem"):WaitForChild("Points"):FireServer(unpack(args))
+            end)
+        end
+    end
+end)
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Toilaai4141/Lon/main/UnLeaked%20(1)%20(1).txt"))()
+
+
+
+
+
+library.rank = "developer"
+local Wm = library:Watermark("ArDrak Hub | v" .. library.version ..  " | " .. library:GetUsername() .. " | rank: " .. library.rank)
+local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
+coroutine.wrap(function()
+    while wait(.75) do
+        FpsWm:Text("fps: " .. library.fps)
+    end
+end)()
+
+spawn(function()
+    while wait() do
+        if DevilFruit then
+            pcall(function()
+                local args = {
+                    [1] = "DevilFruit"
+                }
+
+                game:GetService("ReplicatedStorage"):WaitForChild("StatSystem"):WaitForChild("Points"):FireServer(unpack(args))
+            end)
+        end
+    end
+end)
+
+
+game.Players.LocalPlayer.Character.ChildAdded:Connect(function(tools)
+    if tools:IsA("Tool") then
+        if tools:FindFirstChild("HackerSo1TheGioi") or tools:FindFirstChild("Attack") or tools:FindFirstChild("HackerDepTreai") then 
+            Vtool = tools.Name
+        end
+    end
+end)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---Tab---
+local A = Window:MakeTab({
+	Name = "info hub",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
