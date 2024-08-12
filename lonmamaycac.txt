@@ -570,7 +570,7 @@ spawn(function()
 end)
 
 spawn(function()
-    while wait(0) do
+    while wait(0.25) do
         if FastNew or Fast then
             pcall(function()
                 local args = {
@@ -663,12 +663,6 @@ local A = Window:MakeTab({
 
 local W = Window:MakeTab({
 	Name = "General",
-	Icon = "rbxassetid://",
-	PremiumOnly = false
-})
-
-local S = Window:MakeTab({
-	Name = "info hub",
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
@@ -803,3 +797,58 @@ N:AddButton({
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3589.56323, 320.653534, 1212.49731, 0.915187716, 0, 0.403027922, -0, 1.00000012, -0, -0.403027922, 0, 0.915187716)
   	end    
 })
+
+
+K:AddDropdown({
+	Name = "Select Weapon [ Raid ]",
+	Default = "",
+	Options = Weaponlist,
+	Callback = function(Value)
+		Weapon = Value
+	end    
+})
+
+K:AddToggle({
+	Name = "Fast attacks",
+	Default = true,
+	Callback = function(Value)
+		FastNew = Value
+	end    
+})
+
+K:AddToggle({
+	Name = "Auto Farm Raid",
+	Default = false,
+	Callback = function(Value)
+		AutoFarmRaid = Value
+	end    
+})
+
+K:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+		KillauraRaid = Value
+	end    
+})
+
+local Section = K:AddSection({
+	Name = "Raid Tp"
+})
+
+K:AddButton({
+	Name = "Teleport to Raid [ region ]",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2299.685791015625, 1035.02490234375, -2715.144775390625)
+  	end    
+})
+
+K:AddButton({
+	Name = "Teleport Raid [ Server Raid auto ]",
+	Callback = function()
+      		local TeleportService = game:GetService('TeleportService')
+				GameId = 13373351184
+				TeleportService:Teleport(GameId, game.Players.LocalPlayer)
+  	end    
+})
+
