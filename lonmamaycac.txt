@@ -696,3 +696,79 @@ local P = Window:MakeTab({
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+A:AddParagraph("Jion discord to receive notifications","Vào nhóm discord để nhận thông báo mỗi ngày")
+
+A:AddButton({
+	Name = "Discord",
+	Callback = function()
+      		setclipboard("https://discord.com/invite/p9D6TtzR")
+  	end    
+})
+
+local Section = B:AddSection({
+	Name = "Farm Lerver"
+})
+
+B:AddDropdown({
+	Name = "Select Weapon",
+	Default = "",
+	Options = Weaponlist,
+	Callback = function(Value)
+		Weapon = Value
+	end    
+})
+
+B:AddToggle({
+	Name = "Farm Lerver",
+	Default = false,
+	Callback = function(Value)
+		Farm = Value
+	end    
+})
+
+B:AddToggle({
+	Name = "Fast attacks",
+	Default = true,
+	Callback = function(Value)
+		FastNew = Value
+	end    
+})
+
+B:AddToggle({
+	Name = "Farm Nerver [ Map ]",
+	Default = false,
+	Callback = function(Value)
+		 CL = Value
+	end    
+})
+
+B:AddToggle({
+	Name = "Farm Kuku",
+	Default = false,
+	Callback = function(Value)
+		CC = Value
+	end    
+})
+
+local Section = B:AddSection({
+	Name = "Sub Farm"
+})
+
+B:AddToggle({
+	Name = "Farm Zamasu",
+	Default = false,
+	Callback = function(Value)
+		NN = Value
+	end    
+})
+
+B:AddToggle({
+	Name = "Farm Trading zummy",
+	Default = false,
+	Callback = function(Value)
+		LL = Value
+	end   
+})
