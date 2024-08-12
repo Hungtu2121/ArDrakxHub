@@ -654,12 +654,6 @@ local C = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local D = Window:MakeTab({
-	Name = "Raid",
-	Icon = "rbxassetid://",
-	PremiumOnly = false
-})
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --A---
 A:AddParagraph("Jion discord to receive notifications","Vào nhóm discord để nhận thông báo mỗi ngày")
@@ -757,8 +751,6 @@ C:AddButton({
   	end    
 })
 
-
-
 local Section = C:AddSection({
 	Name = "Zamasu"
 })
@@ -769,4 +761,3 @@ C:AddButton({
       		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3589.56323, 320.653534, 1212.49731, 0.915187716, 0, 0.403027922, -0, 1.00000012, -0, -0.403027922, 0, 0.915187716)
   	end    
 })
-
