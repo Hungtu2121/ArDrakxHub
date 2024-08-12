@@ -571,7 +571,7 @@ end)
 
 spawn(function()
     while wait(0) do
-        if CBLRaid or Fast then
+        if FastNew or Fast then
             pcall(function()
                 local args = {
                     [1] = 2,
@@ -772,4 +772,34 @@ W:AddToggle({
 	Callback = function(Value)
 		LL = Value
 	end   
+})
+
+
+local Section = N:AddSection({
+	Name = "Broly"
+})
+
+N:AddButton({
+	Name = "Teleport Broly",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3426.13672, 89.3883743, -125.636848, 0.434640914, 0, 0.900603831, -0, 1.00000012, -0, -0.90060395, 0, 0.434640855)
+  	end    
+})
+
+N:AddButton({
+	Name = "Spawn Broly",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3485.20337, 88.6477509, 6.33346891, 0.296328068, 0, 0.955086231, -0, 1, -0, -0.955086231, 0, 0.296328068)
+  	end    
+})
+
+local Section = N:AddSection({
+	Name = "Zamasu"
+})
+
+N:AddButton({
+	Name = "Spawn Zamasu",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3589.56323, 320.653534, 1212.49731, 0.915187716, 0, 0.403027922, -0, 1.00000012, -0, -0.403027922, 0, 0.915187716)
+  	end    
 })
