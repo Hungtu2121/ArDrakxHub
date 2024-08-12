@@ -408,7 +408,7 @@ spawn(function()
                         repeat wait()
                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
                             v.HumanoidRootPart.CanCollide = false
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, DistanceMob, 9)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, DistanceMob, 7)
                             EquipWeapon(Weapon)
                             if Method == "Normal"then
                                 Click()
@@ -654,6 +654,12 @@ local C = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local D = Window:MakeTab({
+	Name = "Raid",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --A---
 A:AddParagraph("Jion discord to receive notifications","Vào nhóm discord để nhận thông báo mỗi ngày")
@@ -730,7 +736,8 @@ B:AddToggle({
 	Callback = function(Value)
 		LL = Value
 	end    
-})
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--C---
 
 local Section = C:AddSection({
 	Name = "Broly"
@@ -763,9 +770,60 @@ C:AddButton({
   	end    
 })
 
-C:AddButton({
-	Name = "Spawn Zamasu",
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--D--
+D:AddLabel("Only Farm Raid ")
+
+D:AddDropdown({
+	Name = "Select Weapon [ Raid ]",
+	Default = "",
+	Options = Weaponlist,
+	Callback = function(Value)
+		Weapon = Value
+	end    
+})
+
+D:AddToggle({
+	Name = "Fast attacks",
+	Default = true,
+	Callback = function(Value)
+		FastNew = Value
+	end    
+})
+
+D:AddToggle({
+	Name = "Auto Farm Raid",
+	Default = false,
+	Callback = function(Value)
+		AutoFarmRaid = Value
+	end    
+})
+
+D:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+		KillauraRaid = Value
+	end    
+})
+
+local Section = D:AddSection({
+	Name = "Raid Tp"
+})
+
+D:AddButton({
+	Name = "Teleport to Raid [ region ]",
 	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2392.49634, 159.286377, 1266.71936, 5.65052032e-05, -0.0538166463, -0.99855113, -1.00000024, 2.70605087e-05, -5.82933426e-05, 3.03685665e-05, 0.998551071, -0.0538167953)
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2299.685791015625, 1035.02490234375, -2715.144775390625)
   	end    
 })
+
+D:AddButton({
+	Name = "Teleport Raid [ Server Raid auto ]",
+	Callback = function()
+      		local TeleportService = game:GetService('TeleportService')
+				GameId = 13373351184
+				TeleportService:Teleport(GameId, game.Players.LocalPlayer)
+  	end    
+})
+
