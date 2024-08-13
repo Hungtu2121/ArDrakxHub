@@ -859,13 +859,6 @@ K:AddButton({
 })
 
 
-H:AddButton({
-	Name = "Reset Star",
-	Callback = function()
-      		game:GetService("Players").LocalPlayer.PlayerGui.MainGUI.Stats2.ResetStats.Click.Fire:FireServer()
-  	end    
-})
-
 H:AddToggle({
 	Name = "Melee",
 	Default = false,
