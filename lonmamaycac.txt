@@ -691,6 +691,12 @@ local P = Window:MakeTab({
 	PremiumOnly = false
 })
 
+local G = Window:MakeTab({
+	Name = "Fruit",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A:AddParagraph("Jion discord to receive notifications","Vào nhóm discord để nhận thông báo mỗi ngày")
@@ -852,3 +858,42 @@ K:AddButton({
   	end    
 })
 
+
+H:AddButton({
+	Name = "Reset Star",
+	Callback = function()
+      		game:GetService("Players").LocalPlayer.PlayerGui.MainGUI.Stats2.ResetStats.Click.Fire:FireServer()
+  	end    
+})
+
+H:AddToggle({
+	Name = "Melee",
+	Default = false,
+	Callback = function(Value)
+		Melee = Value
+	end    
+})
+
+H:AddToggle({
+	Name = "Hp",
+	Default = false,
+	Callback = function(Value)
+		Defense = Value
+	end    
+})
+
+H:AddToggle({
+	Name = "Sword",
+	Default = false,
+	Callback = function(Value)
+		Sword = Value
+	end    
+})
+
+H:AddToggle({
+	Name = "Fruit",
+	Default = false,
+	Callback = function(Value)
+		DevilFruit = Value
+	end    
+})
