@@ -417,19 +417,33 @@ end)
 
 spawn(function()
     while wait() do
-        if Nhungnham then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3549.46606, 75.1849823, -1081.09668, 0.0639671981, 0, 0.997952044, -0, 1.00000012, -0, -0.997952044, 0, 0.0639671981)
-            pcall(function()
-                    spawn(function()
-                    game:GetService("RunService").Heartbeat:Connect(function()
-                        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
-                            setfflag("HumanoidParallelRemoveNoPhysics", "False")
-                            setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-                            game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(13)
-                        end
+        if PIP then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1098.41626, 91.1272125, -3625.75146, 0.887500763, 0, -0.460806429, -0, 1.00000012, -0, 0.460806489, 0, 0.887500644)
+            if game.workspace:FindFirstChild("Npc") then
+                check = game.Workspace.Npc
+            end
+            wait()
+            for i,v in pairs(check:GetChildren()) do
+                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 400 then
+                    pcall(function()
+                        repeat wait()
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                            v.HumanoidRootPart.CanCollide = false
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, DistanceMob, 7)
+                            EquipWeapon(Weapon)
+                            if Method == "Normal"then
+                                Click()
+                            elseif Method == "Fast" then
+                                Fast = true
+                            elseif Method == "Super Fast" then
+                                SuperFast = true
+                            else
+                                Click()
+                            end
+                        until not Killaura or not v.Parent or v.Humanoid.Health <= 1
                     end)
-                end)
-            end)
+                end
+            end
         end
     end
 end)
@@ -605,7 +619,7 @@ spawn(function()
 end)
 
 spawn(function()
-    while wait(0.25) do
+    while wait(0.15) do
         if FastNew or Fast then
             pcall(function()
                 local args = {
@@ -776,6 +790,6 @@ local Toggle = Tabs.ATab:AddToggle("MyToggle", {Title = "Farm Melee Electricity"
 local Toggle = Tabs.ATab:AddToggle("MyToggle", {Title = "Farm Melee Manga", Default = false })
 
     Toggle:OnChanged(function(Value)
-        Nhungnham = Value
+        PIP = Value
     end)
     
