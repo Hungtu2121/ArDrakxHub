@@ -1,0 +1,292 @@
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Humatthhhuu/Humantily/main/Fluent.lua%20(3).txt"))()
+game.StarterGui:SetCore("SendNotification", {
+                            Title = "ArDark Hub", 
+                            Text = "Loading" ,
+                            Icon = "",
+                            Duration = 8
+                        })
+wait(0)
+local Window = Fluent:CreateWindow({
+    Title = "ArDrak Hub | Avade",
+    SubTitle = "| V7 https://discord.com/invite/t67WY4Ep",
+    TabWidth = 95,
+    Size = UDim2.fromOffset(380, 300),
+    Acrylic = false,
+    Theme = "Darker",
+    MinimizeKey = Enum.KeyCode.F15
+})
+
+
+
+for _,v in pairs(game:GetDescendants()) do
+    if v.Name == "UaAloLaSaoZ" and v.Name == "DayLaCombatNha" then
+        v:Destroy()
+    end
+end
+
+function TP(pos)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end
+
+function Click()
+    game:GetService'VirtualUser':Button1Down(Vector2.new(0.9,0.9))
+    game:GetService'VirtualUser':Button1Up(Vector2.new(0.9,0.9))
+end
+
+function EquipWeapon(ToolSe)
+    if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+        getgenv().tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+        wait()
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(getgenv().tool)
+    end
+end
+
+
+_G.ColorESP = Color3.new(0,255,255)
+
+function isnil(thing)
+    return (thing == nil)
+end
+local function round(n)
+    return math.floor(tonumber(n) + 0.5)
+end
+Number = math.random(1, 1000000)
+function UpdateBfEsp() 
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+        pcall(function()
+            if DevilFruitESP then
+                if string.find(v.Name, "Fruit") then   
+                    if not v.Handle:FindFirstChild('NameEsp'..Number) then
+                        local bill = Instance.new('BillboardGui',v.Handle)
+                        bill.Name = 'NameEsp'..Number
+                        bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                        bill.Size = UDim2.new(1,200,1,30)
+                        bill.Adornee = v.Handle
+                        bill.AlwaysOnTop = true
+                        local name = Instance.new('TextLabel',bill)
+                        name.Font = "GothamBold"
+                        name.FontSize = "Size14"
+                        name.TextWrapped = true
+                        name.Size = UDim2.new(1,0,1,0)
+                        name.TextYAlignment = 'Top'
+                        name.BackgroundTransparency = 1
+                        name.TextStrokeTransparency = 0.5
+                        name.TextColor3 = _G.ColorESP
+                        name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+                    else
+                        v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+                    end
+                end
+            else
+                if v.Handle:FindFirstChild('NameEsp'..Number) then
+                    v.Handle:FindFirstChild('NameEsp'..Number):Destroy()
+                end
+            end
+        end)
+    end
+end
+
+function UnEquipWeapon()
+    for _,v in pairs(plr.Character:GetChildren()) do
+        if v:IsA("Tool") then
+            wait()
+            game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+        end
+    end
+end
+
+local Weaponlist = {}
+
+function Update()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+        if v:IsA("Tool") then
+            table.insert(Weaponlist,v.Name)
+        end
+    end
+
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Tool") then
+            table.insert(Weaponlist,v.Name)
+        end
+    end
+end
+
+Update()
+
+
+function GetZenoClick(zeno) 
+    for k,v in pairs(zeno:GetDescendants()) do 
+        if v:FindFirstChild("ProximityPrompt") then return v end
+    end
+end
+
+local plr = game.Players.LocalPlayer
+function GetQuestLevel(quest) 
+    local ret = (string.gsub(quest, "%D", ""))
+    return tonumber(ret)
+end
+
+function CheckMobLevel(mob,level) 
+    if mob:FindFirstChild("Data") then
+        if mob.Data.Num.Value == level then 
+            return true 
+        end
+    end
+end
+
+function CheckMob(mob,nocheckhelth) 
+    if not mob.Parent then return false end
+    if not mob:FindFirstChild("HumanoidRootPart") then return false end
+    if not mob:FindFirstChild("Humanoid") then return false end
+    if not mob:FindFirstChild("Head") then return false end
+    if not mob:FindFirstChild("Data") then return false end
+    if not nocheckhelth then 
+        if mob.Humanoid.Health == 0 then return false end
+    end
+    return true
+end
+
+function GetQuestNum(quest) 
+    for _,v in pairs(quest:GetChildren()) do
+        if v.Name == "ClickPart" then
+            if v.Num then
+                num = v.Num.Value
+                return tonumber(num)
+            end
+        end
+    end
+end
+local FarmList = {}
+local FarmListIndex = {}
+local IndexLevel = {}
+
+if game.Workspace:FindFirstChild("QuestFolder") then 
+    for k,v in pairs(game:GetService("Workspace").QuestFolder:GetChildren()) do 
+        local lv = GetQuestLevel(v.Name)
+        local nm = GetQuestNum(v)
+        FarmList[lv] = {
+            Num = nm,
+            Quest = v,
+            Level = lv
+        }
+    end
+    local function Com(a, b)
+        return a < b
+    end
+    for k in pairs(FarmList) do
+        table.insert(FarmListIndex, k)
+    end
+    table.sort(FarmListIndex, Com)
+
+    for _, k in ipairs(FarmListIndex) do
+        table.insert(IndexLevel,k)
+    end
+end
+
+function ClickButton(v)
+    v.BackgroundTransparency = 1
+    v.Size = UDim2.new(100, 100, 100, 100)
+    v.Position = UDim2.new(-1, 0, -5, 0)
+    wait(.2)
+    game:GetService("VirtualUser"):ClickButton1(Vector2.new(50, 50))
+end
+
+function QuayNgang(pos,quaylen) 
+    if quaylen then 
+        return CFrame.new(pos.Position)*CFrame.Angles(math.rad(90),0,0)
+    end
+    return CFrame.new(pos.Position)*CFrame.Angles(math.rad(-90),0,0)
+end
+
+function CheckLevel() 
+    local level = plr.Data.Levels.Value
+    local index = math.huge
+    local questchecker
+    for _, i in ipairs(FarmListIndex) do
+        local v = FarmList[k]
+        if (level - i) >= 0 then
+            if (level - i) < math.abs(level - index) then
+                index = i
+            end
+        end
+    end   
+    return FarmList[index]
+end
+
+function Teleport(pos) 
+    if not plr.Character then 
+        return
+    end
+    if not plr.Character:FindFirstChild("HumanoidRootPart") then return end
+    plr.Character.HumanoidRootPart.CFrame = pos
+end
+
+--   Dark   Light  Aqua Amethyst
+local Tabs = {
+    MainTab = Window:AddTab({ Title = "Update", Icon = "" }),
+}
+
+local Dropdown = Tabs.MainTab:AddDropdown("Dropdown", {
+        Title = "Dropdown",
+        Values = Weaponlist,
+        Multi = false,
+        Default = "",
+        Callback = function(value)
+        Settings.Weapon = Value
+       end
+    })
+
+local Toggle = Tabs.MainTab:AddToggle("MyToggle", {Title = "Toggle", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        Farm = Value
+    end)
+    
+    spawn(function()
+    while wait() do
+        if Farm then
+            pcall(function()
+                local CurrentFarmData = CheckLevel()
+                Teleport(CFrame.new(CurrentFarmData.Quest.ClickPart.Position))
+                if plr.Quest.Num.Value == 0 then
+                    if not plr.PlayerGui:FindFirstChild("QuestTake") then 
+                        fireclickdetector(CurrentFarmData.Quest.ClickPart.ClickDetector,1)
+                        wait(1)
+                    end
+                    if plr.PlayerGui:FindFirstChild("QuestTake") then 
+                        ClickButton(plr.PlayerGui.QuestTake.Accept)
+                        wait(1)
+                    end
+                    Fast = false
+                elseif plr.Quest.Num.Value == CurrentFarmData.Num and plr.Quest.Num.Value ~= 0 then
+                    local hasmob = false
+                    for i,x in pairs(game:GetService("Workspace").Npc:GetChildren()) do
+                        if CheckMobLevel(x,CurrentFarmData.Num) and CheckMob(x) then 
+                            repeat game:GetService("RunService").Heartbeat:wait()
+                                hasmob = true
+                                if Settings.Weapon ~= nil then
+                                    EquipWeapon(Settings.Weapon)
+                                else
+                                end
+                                Click() 
+                                Teleport(QuayNgang(x.HumanoidRootPart.CFrame+Vector3.new(0,Settings.DistanceMob,0)))
+                            until not CheckMob(x) or not Farm
+                        end
+                    end
+                    if not hasmob then 
+                        Teleport(CFrame.new(CurrentFarmData.Quest.ClickPart.Position))
+                    end
+                elseif plr.Quest.Num.Value ~= CurrentFarmData.Num and plr.Quest.Num.Value ~= 0 then
+                    for k,v in pairs(plr.PlayerGui:GetChildren()) do 
+                        if v.Name == "QuestBar" then 
+                            if v:FindFirstChild("Background") and v.Background:FindFirstChild("Cancle") then 
+                                ClickButton(v.Background.Cancle)
+                                wait(1)
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
