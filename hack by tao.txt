@@ -294,22 +294,14 @@ Tabs.MainTab:AddParagraph({
         Content = "update thing..."
     })
     
-local MultiDropdown = Tabs.MainTab:AddDropdown("MultiDropdown", {
-        Title = "Select Weapon",
-        Description = "Weapon",
+local Dropdown = Tabs.MainTab:AddDropdown("Dropdown", {
+        Title = "Dropdown",
         Values = Weaponlist,
-        Multi = true,
-        Default = {""},
-    })
-    
-    MultiDropdown:OnChanged(function(Value)
-        local Values = {}
-        for Value, State in next, Value do
-            table.insert(Values, Value)
-        end
+        Multi = false,
+        Default = ,
+        Callback = function(value)
         Weapon = Value
-    end)
-    
+    })
     
 local Toggle = Tabs.MainTab:AddToggle("MyToggle", {Title = "Farm Lever", Default = false })
 
