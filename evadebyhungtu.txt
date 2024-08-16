@@ -179,6 +179,60 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			return old(self,...)
 		end))
 		
+		local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local flyingEnabled = false -- Set to true to start flying, false to stop flying
+local flySpeed = 100 -- Adjust fly speed as needed
+
+-- Function to start flying
+local function startFlying()
+    local bodyGyro = Instance.new("BodyGyro")
+    local bodyVelocity = Instance.new("BodyVelocity")
+
+    bodyGyro.P = 9e4
+    bodyGyro.maxTorque = Vector3.new(9e4, 9e4, 9e4)
+    bodyGyro.cframe = humanoidRootPart.CFrame
+    bodyGyro.Parent = humanoidRootPart
+
+    bodyVelocity.velocity = Vector3.new(0, 0, 0)
+    bodyVelocity.maxForce = Vector3.new(9e4, 9e4, 9e4)
+    bodyVelocity.Parent = humanoidRootPart
+
+    while flyingEnabled do
+        local moveDirection = Vector3.new()
+        local camera = workspace.CurrentCamera
+        local cameraCFrame = camera.CFrame
+
+        -- WASD controls for movement
+        if player.Character.Humanoid.MoveDirection.Magnitude > 0 then
+            moveDirection = cameraCFrame:VectorToWorldSpace(Vector3.new(player.Character.Humanoid.MoveDirection.X, player.Character.Humanoid.MoveDirection.Y, player.Character.Humanoid.MoveDirection.Z))
+        end
+
+        bodyVelocity.velocity = moveDirection * flySpeed
+        bodyGyro.cframe = cameraCFrame
+
+        wait() -- Wait for the next frame
+    end
+
+    -- Clean up after flying is disabled
+    bodyGyro:Destroy()
+    bodyVelocity:Destroy()
+end
+
+-- Function to toggle flying on or off
+local function toggleFlying(state)
+    flyingEnabled = state
+    if flyingEnabled then
+        startFlying()
+    end
+end
+
+-- Example usage
+toggleFlying()
+		
 		local Players=game:GetService("Players");
   local Player=Players.LocalPlayer;
   --local Mouse=Player:GetMouse();
@@ -274,12 +328,12 @@ Tabs.updTab:AddParagraph({
     
 Tabs.updTabAddParagraph({
         Title = "Made in viet nam",
-        Content = "Viet nam on top by hungtu"
+        Content = "Viet nam on top by hungtu",
     })
     
 Tabs.updTab:AddParagraph({
         Title = "other",
-        Content = "Thank [= Zenos =] Review script me "
+        Content = "Thank [= Zenos =] Review script me",
     })
     
 Tabs.updTab:AddButton({
@@ -287,34 +341,6 @@ Tabs.updTab:AddButton({
         Description = "",
         Callback = function()
         setclipboard("https://discord.com/invite/t67WY4Ep") 
-        end
-    })
-    
-    Tabs.updTab:AddParagraph({
-        Title = "Report error",
-        Content = ""
-    })
-    
-    local Input = Tabs.updTab:AddInput("Input", {
-        Title = "Input",
-        Default = "",
-        Placeholder = "Report here",
-        Numeric = false, -- Only allows numbers
-        Finished = false, -- Only calls callback when you press enter
-        Callback = function(Value)
-        end
-    })
-    
-    Tabs.updTab:AddButton({
-        Title = "Button",
-        Description = "Very important button",
-        Callback = function()
-        Fluent:Notify({
-        Title = " => Report Script <=",
-        Content = "Success",
-        SubContent = "Please wait for us a while", -- Optional
-        Duration = 3 -- Set to nil to make the notification not disappear
-    })
         end
     })
 
@@ -373,6 +399,12 @@ local Input = Tabs.MainTab:AddInput("Input", {
 				game:GetService("ReplicatedStorage").Events.UpdateSetting:FireServer(ohString1, ohNumber2)
        end
     })
+    
+    local Toggle = Tabs.MainTab:AddToggle("MyToggle", {Title = "Fly", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        toggleFlying = Value
+    end)
     
     local Toggle = Tabs.MainTab:AddToggle("MyToggle", {Title = "inf jump", Default = false })
 
