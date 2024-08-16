@@ -8,15 +8,15 @@ Fluent:Notify({
         Title = "",
         Content = "ArDrak Hub",
         SubContent = "loading...", -- Optional
-        Duration = 15
+        Duration = 6
     })
 game:GetService("ReplicatedStorage").Events.Respawn:FireServer()
 wait(4)
 local Window = Fluent:CreateWindow({
     Title = "ArDrak Hub | Avade",
-    SubTitle = "| V7",
+    SubTitle = "| V7 https://discord.com/invite/t67WY4Ep",
     TabWidth = 95,
-    Size = UDim2.fromOffset(500, 400),
+    Size = UDim2.fromOffset(440, 400),
     Acrylic = false,
     Theme = "Darker",
     MinimizeKey = Enum.KeyCode.F15
@@ -266,6 +266,57 @@ Fluent:Notify({
 local Tabs = {
     updTab = Window:AddTab({ Title = "Update", Icon = "" }),
 }
+
+Tabs.updTab:AddParagraph({
+        Title = "update 7.0",
+        Content = ""
+    })
+    
+Tabs.updTabAddParagraph({
+        Title = "Made in viet nam",
+        Content = "Viet nam on top by hungtu"
+    })
+    
+Tabs.updTab:AddParagraph({
+        Title = "other",
+        Content = "Thank [= Zenos =] Review script me "
+    })
+    
+Tabs.updTab:AddButton({
+        Title = "Discord",
+        Description = "",
+        Callback = function()
+        setclipboard("https://discord.com/invite/t67WY4Ep") 
+        end
+    })
+    
+    Tabs.updTab:AddParagraph({
+        Title = "Report error",
+        Content = ""
+    })
+    
+    local Input = Tabs.updTab:AddInput("Input", {
+        Title = "Input",
+        Default = "",
+        Placeholder = "Report here",
+        Numeric = false, -- Only allows numbers
+        Finished = false, -- Only calls callback when you press enter
+        Callback = function(Value)
+        end
+    })
+    
+    Tabs.updTab:AddButton({
+        Title = "Button",
+        Description = "Very important button",
+        Callback = function()
+        Fluent:Notify({
+        Title = " => Report Script <=",
+        Content = "Success",
+        SubContent = "Please wait for us a while", -- Optional
+        Duration = 3 -- Set to nil to make the notification not disappear
+    })
+        end
+    })
 
 --   Dark   Light  Aqua Amethyst
 local Tabs = {
@@ -521,6 +572,7 @@ Tabs.ExtraTab:AddButton({
         end
     })
     
+   
     Tabs.ExtraTab:AddButton({
         Title = "Free Cam [ Shirt + P ]",
         Description = "Very important button",
