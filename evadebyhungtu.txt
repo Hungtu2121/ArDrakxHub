@@ -326,16 +326,6 @@ Tabs.updTab:AddParagraph({
         Content = ""
     })
     
-Tabs.updTabAddParagraph({
-        Title = "Made in viet nam",
-        Content = "Viet nam on top by hungtu",
-    })
-    
-Tabs.updTab:AddParagraph({
-        Title = "other",
-        Content = "Thank [= Zenos =] Review script me",
-    })
-    
 Tabs.updTab:AddButton({
         Title = "Discord",
         Description = "",
