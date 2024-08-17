@@ -28,9 +28,9 @@ ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.02833337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0, 30, 0, 30)
+ImageButton.Size = UDim2.new(0, 45, 0, 45)
 ImageButton.Draggable = false
-ImageButton.Image = "http://www.roblox.com/asset/?id=119690945156436"
+ImageButton.Image = "http://www.roblox.com/asset/?id=130081226089925"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.F15,false,game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.F15,true,game)
