@@ -15,24 +15,6 @@ game.Players.LocalPlayer.Idled:Connect(function()
     VirtualUser:ClickButton2(Vector2.new())
 end)
 
-local hi22 = Instance.new("Hint")
-hi22.Name = "hi22"
-hi22.Parent = game.CoreGui
-hi22.Text = "Crediet by Ardrak Hub"
-
-spawn(function()
-    local startTime = tick()
-    while wait() do
-        pcall(function()
-            local elapsedTime = tick() - startTime
-            local hours = math.floor(elapsedTime / 3600)
-            local minutes = math.floor((elapsedTime % 3600) / 60)
-            local seconds = math.floor(elapsedTime % 60)
-            hi22.Text = "Time Client: ".. hours.. ":".. minutes.. ":".. seconds.. " | FPS: " .. math.floor(workspace:GetRealPhysicsFPS()).. " | Ping: " .. game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-        end)
-    end
-end)
-
 
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
@@ -45,10 +27,10 @@ UILock = true
 ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0, 40, 0, 40)
-ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=97839800744135"
+ImageButton.Position = UDim2.new(0.02833337, 0, 0.0952890813, 0)
+ImageButton.Size = UDim2.new(0, 30, 0, 30)
+ImageButton.Draggable = false
+ImageButton.Image = "http://www.roblox.com/asset/?id=119690945156436"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.F15,false,game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.F15,true,game)
@@ -4443,7 +4425,7 @@ end,
 local L_1139_, L_1140_, L_1141_, L_1142_, L_1143_ = L_2_(51)
 return {
 Name = 'Darker',
-Accent = Color3.fromRGB(232, 181, 138),
+Accent = Color3.fromRGB(96, 205, 255),
 AcrylicMain = Color3.fromRGB(10, 10, 10),
 AcrylicBorder = Color3.fromRGB(60, 60, 60),
 AcrylicGradient = ColorSequence.new(Color3.fromRGB(25, 25, 25), Color3.fromRGB(15, 15, 15)),
