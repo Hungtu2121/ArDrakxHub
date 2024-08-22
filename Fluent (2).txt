@@ -15,6 +15,12 @@ game.Players.LocalPlayer.Idled:Connect(function()
     VirtualUser:ClickButton2(Vector2.new())
 end)
 
+local hi22 = Instance.new("Hint")
+hi22.Name = "hi22"
+hi22.Parent = game.CoreGui
+hi22.Text = "by. tứ bell"
+
+
 
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
@@ -28,9 +34,9 @@ ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.02833337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0, 45, 0, 45)
+ImageButton.Size = UDim2.new(0, 35, 0, 35)
 ImageButton.Draggable = false
-ImageButton.Image = "http://www.roblox.com/asset/?id=130081226089925"
+ImageButton.Image = "http://www.roblox.com/asset/?id=73305477418863"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.F15,false,game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.F15,true,game)
